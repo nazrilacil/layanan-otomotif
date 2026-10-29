@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, type Component } from 'vue'
+import { ref, computed, type Component } from 'vue'
 import {
   Wrench,
   Menu,
@@ -21,8 +21,10 @@ const open = ref(false)
 const { primaryPhone, primaryTel, waUrl } = useContactLinks()
 const colorMode = useColorMode()
 
+const isDark = computed(() => colorMode.value === 'dark')
+
 const toggleTheme = () => {
-  colorMode.preference = colorMode.value === 'dark' ? 'light' : 'dark'
+  colorMode.preference = isDark.value ? 'light' : 'dark'
 }
 
 const iconMap: Record<string, Component> = {
@@ -51,24 +53,14 @@ const iconMap: Record<string, Component> = {
         <span class="sm:hidden">Otomotif Pangandaran</span>
       </a>
 
-      <nav
-        aria-label="Navigasi utama"
-        class="hidden md:block"
-      >
+      <nav aria-label="Navigasi utama" class="hidden md:block">
         <ul class="flex items-center gap-6 text-[15px] font-medium">
-          <li
-            v-for="item in navigation"
-            :key="item.id"
-          >
+          <li v-for="item in navigation" :key="item.id">
             <a
               :href="item.href"
               class="flex items-center gap-1.5 opacity-85 transition hover:text-amber hover:opacity-100"
             >
-              <component
-                :is="iconMap[item.icon]"
-                class="h-4 w-4"
-                aria-hidden="true"
-              />
+              <component :is="iconMap[item.icon]" class="h-4 w-4" aria-hidden="true" />
               {{ item.label }}
             </a>
           </li>
@@ -79,17 +71,16 @@ const iconMap: Record<string, Component> = {
         <button
           type="button"
           class="grid h-10 w-10 place-items-center rounded-lg bg-white/10 text-white transition hover:bg-white/20"
-          :aria-label="colorMode.value === 'dark' ? 'Aktifkan mode terang' : 'Aktifkan mode gelap'"
+          :aria-label="isDark ? 'Aktifkan mode terang' : 'Aktifkan mode gelap'"
           @click="toggleTheme"
         >
-          <Sun
-            v-if="colorMode.value === 'dark'"
-            class="h-5 w-5"
-          />
-          <Moon
-            v-else
-            class="h-5 w-5"
-          />
+          <ClientOnly>
+            <Sun v-if="isDark" class="h-5 w-5" />
+            <Moon v-else class="h-5 w-5" />
+            <template #fallback>
+              <div class="h-5 w-5"></div>
+            </template>
+          </ClientOnly>
         </button>
 
         <a
@@ -118,38 +109,21 @@ const iconMap: Record<string, Component> = {
           aria-label="Buka menu"
           @click="open = !open"
         >
-          <Menu
-            v-if="!open"
-            class="h-6 w-6"
-          />
-          <X
-            v-else
-            class="h-6 w-6"
-          />
+          <Menu v-if="!open" class="h-6 w-6" />
+          <X v-else class="h-6 w-6" />
         </button>
       </div>
     </div>
 
-    <div
-      v-show="open"
-      id="mobile-menu"
-      class="border-t border-white/10 bg-navy md:hidden"
-    >
+    <div v-show="open" id="mobile-menu" class="border-t border-white/10 bg-navy md:hidden">
       <ul class="space-y-1 px-5 py-4">
-        <li
-          v-for="item in navigation"
-          :key="item.id"
-        >
+        <li v-for="item in navigation" :key="item.id">
           <a
             :href="item.href"
             class="flex items-center gap-3 rounded-lg px-3 py-3 transition hover:bg-white/5"
             @click="open = false"
           >
-            <component
-              :is="iconMap[item.icon]"
-              class="h-5 w-5 text-amber"
-              aria-hidden="true"
-            />
+            <component :is="iconMap[item.icon]" class="h-5 w-5 text-amber" aria-hidden="true" />
             <span>{{ item.label }}</span>
           </a>
         </li>
