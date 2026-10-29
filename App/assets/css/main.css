@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg: #f5f6f2;
+    --surface: #ffffff;
+    --ink: #12232b;
+    --muted: #4d5f68;
+    --line: #dbe1de;
+    --night: #0f2229;
+    --night2: #17323b;
+    --amber: #ffb400;
+    --sea: #0b7a85;
+    --wa: #1fa855;
+  }
+
+  .dark {
+    --bg: #0b181d;
+    --surface: #112830;
+    --ink: #eef3f1;
+    --muted: #a6b8bd;
+    --line: #244048;
+    --sea: #4cc3cf;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--ink);
+    font-family: theme('fontFamily.body');
+    -webkit-font-smoothing: antialiased;
+    transition: background-color 0.3s, color 0.3s;
+  }
+/* Tambahkan di bawah tag body {} */
+  h1, h2, h3, p, span, a, div, section, header, footer {
+    transition-property: background-color, border-color, color;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+  }
+  
+  h1, h2, h3 {
+    font-family: theme('fontFamily.display');
+    letter-spacing: 0.2px;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--amber);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3.5 font-display text-base font-bold tracking-wide no-underline transition-[transform,box-shadow,background-color] duration-200 min-h-[52px];
+  }
+  .btn:active {
+    transform: scale(0.97);
+  }
+  .btn-call { @apply bg-amber text-amber-ink; }
+  .btn-wa   { @apply bg-wa text-white; }
+  .btn-ghost { @apply border-2 border-white/30 text-white hover:bg-white/10; }
+}
+
+/* 👇 TAMBAHKAN INI UNTUK DARK MODE PETA LEAFLET 👇 */
+.dark .leaflet-layer,
+.dark .leaflet-control-zoom-in,
+.dark .leaflet-control-zoom-out,
+.dark .leaflet-control-attribution {
+  filter: invert(100%) hue-rotate(180deg) brightness(95%) contrast(90%);
+}
+.dark .leaflet-popup-content-wrapper,
+.dark .leaflet-popup-tip {
+  background-color: var(--surface);
+  color: var(--ink);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
