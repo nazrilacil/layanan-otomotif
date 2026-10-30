@@ -5,7 +5,7 @@ import VerifiedBadge from '~/components/ui/VerifiedBadge.vue'
 
 const facts = [
   { icon: Star, primary: business.rating.value.toFixed(1).replace('.', ','), secondary: `dari ${business.rating.count} ulasan`, verified: business.rating.verified },
-  { icon: Clock, primary: business.hours.text, secondary: 'setiap hari', verified: business.hours.verified },
+  { icon: Clock, primary: business.hours.text, secondary: 'kecuali Jumat', verified: business.hours.verified },
   { icon: Truck, primary: 'Datang ke lokasi', secondary: 'untuk kendala di jalan', verified: true },
   { icon: MapPin, primary: 'Pangandaran', secondary: 'dan sekitarnya', verified: true },
 ]
