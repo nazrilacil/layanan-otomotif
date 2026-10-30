@@ -9,7 +9,7 @@ export const business: BusinessConfig = {
   displayName: 'Layanan Otomotif Pangandaran',
   legalName: null,
   description:
-  'Layanan otomotif di Pangandaran untuk mobil mogok, servis kendaraan, pemeriksaan aki, towing, perbaikan AC, rem, overhaul mesin, dan pengantaran sparepart.',
+  'Layanan otomotif di Pangandaran untuk inspeksi mobil, rental mobil dan motor, city tour, bantuan mobil mogok, crane dan towing antar kota, pemeriksaan dan penggantian aki, penanganan mesin overheat, overhaul transmisi matic dan mesin mobil kecil hingga bus/truk, scan bus/truk commonrail, ECU coding, pengantaran sparepart, servis ringan, tune up, perbaikan rem dan kaki-kaki, serta servis AC mobil.',
   phones: [
     {
       id: 'primary',
