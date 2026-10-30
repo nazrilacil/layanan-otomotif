@@ -9,7 +9,7 @@ export const business: BusinessConfig = {
   displayName: 'Layanan Otomotif Pangandaran',
   legalName: null,
   description:
-  'Layanan bengkel mobil panggilan di Pangandaran untuk mobil mogok, aki lemah, ban bocor, servis ringan, towing, perbaikan rem, AC mobil, hingga pemeriksaan mesin. Hubungi kami untuk mendapatkan bantuan otomotif.',
+  'Layanan bengkel mobil panggilan di Pangandaran untuk mobil mogok, aki lemah, servis ringan, towing, perbaikan rem, AC mobil, hingga pemeriksaan mesin. Hubungi kami untuk mendapatkan bantuan otomotif.',
   phones: [
     {
       id: 'primary',
