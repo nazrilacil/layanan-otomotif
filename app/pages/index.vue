@@ -16,7 +16,7 @@ import FinalCtaSection from '~/components/sections/FinalCtaSection.vue'
 const config = useRuntimeConfig()
 const siteUrl = (config.public.siteUrl as string).replace(/\/$/, '')
 const pageTitle = 'Layanan Otomotif Pangandaran (PND) — Bengkel Mobil Terdekat'
-const pageDesc = 'Bengkel mobil terdekat di Pangandaran: mobil mogok, towing, aki, overheat, servis, rem, AC, overhaul matic, ECU coding, hingga rental mobil. Telepon dulu.'
+const pageDesc = 'Layanan otomotif Pangandaran: bengkel mobil, sparepart dan antar suku cadang, servis, mobil mogok, towing, aki, overheat, AC, rem, ECU coding, overhaul matic, scan truk dan rental mobil. Hubungi kami!'
 const ogImage = `${siteUrl}/og-image.jpg`
 
 useSeoMeta({
