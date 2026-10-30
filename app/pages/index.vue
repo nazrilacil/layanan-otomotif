@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { business, primaryPhone } from '~/config/business'
 import { normalizePhone } from '~/utils/phone'
-import { faqs } from '~/data/faqs' 
+import { faqs } from '~/data/faqs'
 
 import HeroSection from '~/components/sections/HeroSection.vue'
 import FactsSection from '~/components/sections/FactsSection.vue'
@@ -15,8 +15,8 @@ import FinalCtaSection from '~/components/sections/FinalCtaSection.vue'
 
 const config = useRuntimeConfig()
 const siteUrl = (config.public.siteUrl as string).replace(/\/$/, '')
-const pageTitle = 'Layanan Otomotif Pangandaran — Bengkel Mobil & Bantuan Darurat'
-const pageDesc = 'Bantuan mobil mogok, aki, ban, servis ringan, rem, dan AC di Pangandaran. Hubungi kami untuk estimasi biaya sebelum pengerjaan.'
+const pageTitle = 'Layanan Otomotif Pangandaran (PND) — Bengkel Mobil Terdekat'
+const pageDesc = 'Bengkel mobil terdekat di Pangandaran: mobil mogok, aki, ban bocor, servis ringan, rem, dan AC. Telepon untuk estimasi biaya sebelum pengerjaan.'
 const ogImage = `${siteUrl}/og-image.jpg`
 
 useSeoMeta({
@@ -37,7 +37,11 @@ useSeoMeta({
   robots: 'index, follow, max-image-preview:large, max-snippet:-1',
 })
 
+const serviceAreas = ['Pangandaran', 'Sidamulih', 'Parigi', 'Cijulang', 'Kalipucang']
+const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${business.coordinates?.lat},${business.coordinates?.lng}`
+
 useHead({
+  htmlAttrs: { lang: 'id' },
   link: [{ rel: 'canonical', href: siteUrl }],
   script: [
     {
@@ -46,13 +50,25 @@ useHead({
         '@context': 'https://schema.org',
         '@type': 'AutoRepair',
         name: business.displayName,
+        alternateName: [
+          'Layanan Otomotif PND',
+          'Bengkel Mobil Pangandaran',
+          'Bengkel Terdekat Pangandaran',
+        ],
         description: pageDesc,
         url: siteUrl,
         image: ogImage,
         telephone: normalizePhone(primaryPhone.display),
-        areaServed: ['Pangandaran', 'Sidamulih', 'Parigi', 'Cijulang', 'Kalipucang'],
+        areaServed: serviceAreas,
         priceRange: '$$',
-        openingHours: 'Mo-Su 00:00-23:59',
+        openingHoursSpecification: [
+          {
+            '@type': 'OpeningHoursSpecification',
+            dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Saturday', 'Sunday'],
+            opens: '00:00',
+            closes: '23:59',
+          },
+        ],
         address: {
           '@type': 'PostalAddress',
           streetAddress: 'Wonoharjo',
@@ -66,6 +82,8 @@ useHead({
           latitude: business.coordinates?.lat,
           longitude: business.coordinates?.lng,
         },
+        hasMap: mapsUrl,
+        sameAs: [business.socials?.instagram].filter(Boolean),
       }),
     },
     {
@@ -96,9 +114,49 @@ useHead({
     <AreasSection />
     <GallerySection />
     <PricingSection />
+    <section
+      id="tentang"
+      class="mx-auto max-w-wrap px-5 py-16"
+      aria-labelledby="tentang-judul"
+    >
+      <h2
+        id="tentang-judul"
+        class="font-display text-3xl font-extrabold text-navy md:text-4xl"
+      >
+        Bengkel mobil terdekat di Pangandaran
+      </h2>
+
+      <div class="mt-5 max-w-3xl space-y-4 text-base leading-relaxed text-navy/80">
+        <p>
+          {{ business.displayName }} (sering disingkat Layanan Otomotif PND)
+          membantu warga dan wisatawan yang mobilnya bermasalah di Kabupaten
+          Pangandaran: mobil mogok, aki lemah, ban bocor, servis ringan, rem,
+          dan AC mobil.
+        </p>
+        <p>
+          Lokasi kami di {{ business.address }}. Jika Anda sedang mencari
+          bengkel terdekat dari posisi Anda sekarang, telepon atau kirim lokasi
+          lewat WhatsApp, lalu kami konfirmasi apakah tim bisa datang dan
+          berapa estimasi biayanya sebelum pengerjaan dimulai.
+        </p>
+      </div>
+
+      <h3 class="mt-8 font-display text-xl font-bold text-navy">
+        Area layanan
+      </h3>
+      <ul class="mt-3 flex flex-wrap gap-2">
+        <li
+          v-for="a in serviceAreas"
+          :key="a"
+          class="rounded-full border border-navy/15 px-4 py-1.5 text-sm font-semibold text-navy"
+        >
+          Bengkel mobil {{ a }}
+        </li>
+      </ul>
+    </section>
     <FaqSection />
     <FinalCtaSection />
-    
+
     <!-- Skip link untuk aksesibilitas keyboard -->
     <a
       href="#atas"
