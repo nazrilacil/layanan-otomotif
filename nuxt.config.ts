@@ -40,7 +40,6 @@ export default defineNuxtConfig({
     sitemap: `${SITE_URL}/sitemap.xml`,
   },
 
-  // SEO Global & Meta Tags Dasar
   app: {
     head: {
       htmlAttrs: { lang: 'id' },
@@ -54,10 +53,12 @@ export default defineNuxtConfig({
         { name: 'author', content: 'Layanan Otomotif Pangandaran' },
       ],
       link: [
-        { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' },
+        { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
         { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon-32x32.png' },
-        { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon-16x16.png' },
+        { rel: 'icon', type: 'image/png', sizes: '192x192', href: '/android-chrome-192x192.png' },
+        { rel: 'shortcut icon', href: '/favicon-32x32.png' },
         { rel: 'manifest', href: '/site.webmanifest' },
+        { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' },
         { rel: 'canonical', href: SITE_URL }
       ],
     },
