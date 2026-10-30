@@ -64,7 +64,7 @@ useHead({
         openingHoursSpecification: [
           {
             '@type': 'OpeningHoursSpecification',
-            dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Saturday', 'Sunday'],
+            dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
             opens: '00:00',
             closes: '23:59',
           },
@@ -114,6 +114,7 @@ useHead({
     <AreasSection />
     <GallerySection />
     <PricingSection />
+    
     <section
       id="tentang"
       class="mx-auto max-w-wrap px-5 py-16"
@@ -121,12 +122,12 @@ useHead({
     >
       <h2
         id="tentang-judul"
-        class="font-display text-3xl font-extrabold text-navy md:text-4xl"
+        class="font-display text-3xl font-extrabold text-ink md:text-4xl"
       >
         Bengkel mobil terdekat di Pangandaran
       </h2>
 
-      <div class="mt-5 max-w-3xl space-y-4 text-base leading-relaxed text-navy/80">
+      <div class="mt-5 max-w-3xl space-y-4 text-base leading-relaxed text-muted">
         <p>
           {{ business.displayName }} (sering disingkat Layanan Otomotif PND)
           membantu warga dan wisatawan yang mobilnya bermasalah di Kabupaten
@@ -141,19 +142,20 @@ useHead({
         </p>
       </div>
 
-      <h3 class="mt-8 font-display text-xl font-bold text-navy">
+      <h3 class="mt-8 font-display text-xl font-bold text-ink">
         Area layanan
       </h3>
       <ul class="mt-3 flex flex-wrap gap-2">
         <li
           v-for="a in serviceAreas"
           :key="a"
-          class="rounded-full border border-navy/15 px-4 py-1.5 text-sm font-semibold text-navy"
+          class="rounded-full border border-line bg-surface px-4 py-1.5 text-sm font-semibold text-ink"
         >
           Bengkel mobil {{ a }}
         </li>
       </ul>
     </section>
+    
     <FaqSection />
     <FinalCtaSection />
 
