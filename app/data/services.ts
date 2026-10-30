@@ -2,6 +2,18 @@ import type { Service } from '~/types'
 
 export const services: Service[] = [
   {
+    id: 'inspeksi',
+    title: 'Jasa Inspeksi Mobil',
+    description: 'Pengecekan menyeluruh kondisi mobil sebelum Anda membeli atau melakukan perjalanan jauh.',
+    icon: 'ClipboardCheck',
+  },
+  {
+    id: 'rental-tour',
+    title: 'Rental Mobil/Motor & City Tour',
+    description: 'Sewa kendaraan harian untuk wisatawan dan paket city tour menjelajahi indahnya Pangandaran.',
+    icon: 'KeyRound',
+  },
+  {
     id: 'mogok',
     title: 'Mobil mogok di jalan',
     description: 'Bantuan datang ke lokasi, dari pengecekan awal sampai penanganan di tempat.',
@@ -27,7 +39,7 @@ export const services: Service[] = [
   },
   {
     id: 'overhaul-matic',
-    title: 'Overhaule Matic',
+    title: 'Overhaul Matic',
     description: 'Perbaikan menyeluruh komponen transmisi matic agar perpindahan gigi kembali halus.',
     icon: 'Settings',
   },
