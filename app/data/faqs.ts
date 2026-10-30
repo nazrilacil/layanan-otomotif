@@ -19,14 +19,14 @@ export const faqs: Faq[] = [
     id: 'pnd',
     question: 'Apa itu Layanan Otomotif PND?',
     answer:
-      'PND adalah singkatan yang sering dipakai untuk Pangandaran. Layanan Otomotif PND yang dimaksud di sini adalah Layanan Otomotif Pangandaran: bantuan mobil mogok, aki, ban bocor, servis ringan, rem, dan AC mobil.',
+      'PND adalah singkatan yang sering dipakai untuk Pangandaran. Layanan Otomotif PND yang dimaksud di sini adalah Layanan Otomotif Pangandaran: bantuan mobil mogok, towing, aki, overheat, servis, rem, AC mobil, dan layanan lainnya.',
     pending: false,
   },
   {
     id: 'layanan',
     question: 'Masalah mobil apa saja yang bisa dibantu?',
     answer:
-      'Mobil mogok, aki lemah atau tekor, ban bocor, servis ringan, pengecekan rem, dan AC mobil kurang dingin. Jika masalah Anda belum tersebut, jelaskan lewat telepon atau WhatsApp dan kami sampaikan apakah bisa ditangani.',
+      'Mobil mogok di jalan, crane/towing antar kota, aki lemah atau mati, mesin overheat, servis ringan dan tune up, rem dan kaki-kaki, AC mobil, overhaul matic, overhaul mobil kecil/bus/truk, scan commonrail, ECU coding, inspeksi mobil, pengantaran sparepart, serta rental mobil/motor dan city tour. Jika kebutuhan Anda belum tersebut, jelaskan lewat telepon atau WhatsApp.',
     pending: false,
   },
   {
