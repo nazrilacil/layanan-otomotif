@@ -24,7 +24,7 @@ const year = new Date().getFullYear()
             <li class="flex items-start gap-2.5">
               <Clock class="mt-0.5 h-5 w-5 shrink-0 text-sea" />
               <span>
-                Buka {{ business.hours.text }}
+                Buka {{ business.hours.text }} (kecuali Jumat)
               </span>
             </li>
           </ul>
