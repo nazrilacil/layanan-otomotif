@@ -23,7 +23,7 @@ const { primaryPhone, primaryTel, waUrl, business } = useContactLinks()
             class="h-2.5 w-2.5 animate-pulse rounded-full bg-[#3DDC84]"
             aria-hidden="true"
           />
-          Buka 24 jam
+          Buka 24 jam (kecuali Jumat)
           <VerifiedBadge :verified="business.hours.verified" />
         </div>
 
@@ -33,8 +33,10 @@ const { primaryPhone, primaryTel, waUrl, business } = useContactLinks()
           :enter="{ opacity: 1, y: 0, transition: { delay: 150, duration: 700 } }"
           class="mt-5 font-display text-[clamp(2.75rem,8vw,5.75rem)] font-extrabold leading-[1.02]"
         >
-          Mobil bermasalah di Pangandaran?
-          <span class="block text-amber">Telepon, kami datang.</span>
+        Bengkel Mobil dan Layanan Otomotif
+          <span class="block text-amber">
+            di Pangandaran 
+          </span>
         </h1>
 
         <p
@@ -64,6 +66,7 @@ const { primaryPhone, primaryTel, waUrl, business } = useContactLinks()
           <a
             :href="waUrl"
             class="btn btn-wa group"
+            aria-label="Hubungi Layanan Otomotif Pangandaran melalui WhatsApp"
             target="_blank"
             rel="noopener noreferrer"
           >
