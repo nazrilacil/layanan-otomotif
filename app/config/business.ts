@@ -33,7 +33,7 @@ export const business: BusinessConfig = {
     message: 'Halo, mobil saya bermasalah. Bisa dibantu?',
     verified: true,
   },
-  hours: { text: '24 jam, (Senin - Kamis, Sabtu - Minggu, Jum\'at tutup)', verified: true },
+  hours: { text: '24 jam', verified: true },
   rating: { value: 5.0, count: 17, source: 'Google', verified: true },
   region: 'Kabupaten Pangandaran, Jawa Barat',
   address: 'Wonoharjo, Kec. Pangandaran, Kab. Pangandaran, Jawa Barat 46396',
